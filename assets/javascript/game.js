@@ -1,13 +1,52 @@
 var winCounter = 0;
-var word = ["Bulbasaur", "Ivysaur", "Venusaur"];
+var pokedex = ["BULBASAUR", "IVYSAUR", "VENUSAUR"];
 var wordChoice = "";
 var guessCounter = 12;
 var guessLetters = [];
-var guessWord = "";
+var guessWord = [];
+var guessStatus = [];
+
+newGame();
+
+function newGame() {
+    guessLetters = [];
+    var n = Math.floor((Math.random() * pokedex.length));
+    wordChoice = pokedex[n]; //needs to push word into new 
+    guessWord = wordChoice.split("");
+    for (i=0; i < guessWord.length; i++) {
+        guessStatus.push("_");
+    }
+    guessCounter = 12;
+};
 
 
+window.addEventListener("keydown", function (e) {
+    var press = e.toUpperCase;
+    //alert(press);
+    for (j = 0; j < guessLetters.length; j++) {
+        if (press !== guessLetters[j]) {
+            for (k = 0; k < guessWord; k++) {
+                if (press === guessWord[k]) {
+                    guessStatus[k] = guessWord[k];
+                    guessCounter -= 1;
+                }
+                else guessStatus.push(press);
+                guessCounter -= 1;
+            }
+        }
+    }
+});
 
+if (guessStatus === wordChoice) {
+    alert("Congratulations, you win");
+    winCounter += 1;
+    newGame();
+};
 
+if (guessCounter === 0) {
+    alert("Sorry, you're out of guesses")
+    newGame();
+};
 
 //onpress event of keyboard 
 
