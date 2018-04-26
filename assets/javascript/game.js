@@ -22,33 +22,36 @@ function newGame() {
     };
     document.getElementById("guessStatus").innerHTML=guessStatus;
     guessCounter = 12;
+    document.getElementById("guessLetters").innerHTML = guessLetters;
+    document.getElementById("guessCounter").innerHTML = guessCounter;
 };
+
 
 
 document.addEventListener("keypress", function(e) {
     press = event.key.toUpperCase();
-    for (j = -1; j < guessLetters.length; j++) {
-        if (press !== guessLetters[j]) {
-
-
-            guessLetters.push(press);
-            guessCounter -= 1;  
-            for (k = 0; k < guessWord; k++) {
- 
+//for (j = 0; j < guessLetters.length; j++) { //examine previous guesses to not count duplicates
+//            if (press !== guessLetters[j]) { //continue if not 
+                guessLetters.push(press);                
+                for (k = 0; k < guessWord.length; k++) {
                 
-                if (press === guessWord[k]) {
-                    guessStatus[k] = guessWord[k];
+                    if (press == guessWord[k]) {
+                        guessStatus[k] = press;
+                        document.getElementById("guessStatus").innerHTML = guessStatus;
+                    }
                 }
-            }
-            alert(press);
-        }
-    }
+
+//            }
+//            else {
+            guessCounter -= 1;
+//            }
+//        }   
     document.getElementById("guessLetters").innerHTML = guessLetters;
     document.getElementById("guessStatus").innerHTML = guessStatus;
     document.getElementById("guessCounter").innerHTML = guessCounter;
-});
 
-if (guessStatus.toString === wordChoice.toString) {
+
+if (guessStatus.toString() == guessWord.toString()) {
     alert("Congratulations, you win");
     winCounter += 1;
     document.getElementById("winCounter").innerHTML = "Wins: "+winCounter;
@@ -56,6 +59,9 @@ if (guessStatus.toString === wordChoice.toString) {
 };
 
 if (guessCounter <= 0) {
-    alert("Sorry, you're out of guesses")
+    alert("Sorry, you're out of guesses");
     newGame();
-};
+}
+
+});
+
