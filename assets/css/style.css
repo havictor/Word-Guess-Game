@@ -16,6 +16,6 @@ div {
     background-color: rgba(128, 216, 160, 0.0);
     font-weight: thicker;
     color: yellow;
-    text-shadow: 2px 1px blue;
+    text-shadow: 3px 1px blue;
     font-size: 20px;
 }
