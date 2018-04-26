@@ -6,6 +6,7 @@ var guessLetters = [];
 var guessWord = [];
 var guessStatus = [];
 var press = "";
+var rightCounter = 0;
 
 window.onload = function() {
     newGame();
@@ -38,12 +39,18 @@ document.addEventListener("keypress", function(e) {
                     if (press == guessWord[k]) {
                         guessStatus[k] = press;
                         document.getElementById("guessStatus").innerHTML = guessStatus;
+                        rightCounter += 1;
                     }
                 }
 
 //            }
 //            else {
-            guessCounter -= 1;
+            if (rightCounter == 0) {
+                guessCounter -= 1;
+            }
+            else {
+                rightCounter = 0
+            }
 //            }
 //        }   
     document.getElementById("guessLetters").innerHTML = guessLetters;
