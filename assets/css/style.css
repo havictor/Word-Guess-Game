@@ -13,5 +13,9 @@ body {
     }
 
 div {
-    background-color: white;
+    background-color: rgba(128, 216, 160, 0.0);
+    font-weight: thicker;
+    color: yellow;
+    text-shadow: 2px 1px blue;
+    font-size: 20px;
 }
