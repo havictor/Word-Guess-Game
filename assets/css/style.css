@@ -1,5 +1,13 @@
 /* wordChoice displayed, with spacing
 */
+#guessStatus {
+    letter-spacing: 4px;
+}
+
+.container {
+    margin-top: 50px;
+}
+
 body {
     background-image: url("../images/PalletTown.png");
     }
