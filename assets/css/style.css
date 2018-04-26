@@ -1,2 +1,9 @@
 /* wordChoice displayed, with spacing
 */
+body {
+    background-image: url("../images/PalletTown.png");
+    }
+
+div {
+    background-color: white;
+}
