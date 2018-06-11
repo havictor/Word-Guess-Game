@@ -14,8 +14,9 @@ body {
 
 div {
     background-color: rgba(128, 216, 160, 0.0);
-    font-weight: thicker;
+    font-weight: bold;
     color: yellow;
     text-shadow: 3px 1px blue;
-    font-size: 20px;
+    font-size: 22px;
+    font-family: 'Cabin Sketch', cursive;
 }
